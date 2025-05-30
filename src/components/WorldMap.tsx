@@ -55,16 +55,19 @@ export const WorldMap = () => {
         </ChartContainer>
         
         {/* Country stats */}
-        <div className="grid grid-cols-4 gap-4 mt-4">
-          {countryData.map((country) => (
-            <div key={country.name} className="text-center p-2 bg-gray-50 rounded">
-              <div className="font-medium text-sm">{country.code}</div>
-              <div className="text-lg font-bold text-blue-600">
-                {(country.businesses / 1000000).toFixed(1)}M
+        <section className="mt-4" aria-labelledby="country-stats-heading">
+          <h3 id="country-stats-heading" className="sr-only">Country Business Statistics</h3>
+          <div className="grid grid-cols-4 gap-4">
+            {countryData.map((country) => (
+              <div key={country.name} className="text-center p-2 bg-gray-50 rounded">
+                <div className="font-medium text-sm">{country.code}</div>
+                <div className="text-lg font-bold text-blue-600">
+                  {(country.businesses / 1000000).toFixed(1)}M
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </section>
       </CardContent>
     </Card>
   );
